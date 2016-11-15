@@ -16,3 +16,16 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+
+
+const totalBatteries = batteryBatches.reduce((a, b) => a + b, 0);
+
+const wordCountMap = monologueLines.reduce((sentenceCount, sentence) => {
+  let wordCount = sentence.split(" ").length;
+  if (wordCount in sentenceCount) {
+    sentenceCount[wordCount]++;
+  } else {
+    sentenceCount[wordCount] = 1;
+  }
+  return sentenceCount;
+},{});
